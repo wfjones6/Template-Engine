@@ -201,77 +201,77 @@ async function getEmpEmail(empRole){
 
 async function generateRoster() {
    // generateHTML
-   var teamRoster = '';
+   const html = '';
 
-   teamRoster += '<!DOCTYPE html>';
-   teamRoster += '<html lang="en">';
-   teamRoster += '<head>';
-   teamRoster += '<meta charset="UTF-8" />';
-   teamRoster += '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
-   teamRoster += '<meta http-equiv="X-UA-Compatible" content="ie=edge" />';
-   teamRoster += '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>';
-   teamRoster += '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"';
-   teamRoster += 'integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>';
-   teamRoster += '<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>';
-   teamRoster += '<link rel="stylesheet" href="styles.css">';
-   teamRoster += '<title>Weather Dashboard</title>';
+   html += '<!DOCTYPE html>';
+   html += '<html lang="en">';
+   html += '<head>';
+   html += '<meta charset="UTF-8" />';
+   html += '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
+   html += '<meta http-equiv="X-UA-Compatible" content="ie=edge" />';
+   html += '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>';
+   html += '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"';
+   html += 'integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>';
+   html += '<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>';
+   html += '<link rel="stylesheet" href="styles.css">';
+   html += '<title>Weather Dashboard</title>';
 
-   teamRoster += '<style>';
-   teamRoster += 'span {';
-   teamRoster += 'border-radius: 3px;';
-   teamRoster += 'padding: 5px;';
-   teamRoster += 'display: inline;';
-   teamRoster += 'color: white;';
-   teamRoster += 'background-color: red;';
-   teamRoster += '}';
-   teamRoster += '</style>';
-   teamRoster += '</head>';
+   html += '<style>';
+   html += 'span {';
+   html += 'border-radius: 3px;';
+   html += 'padding: 5px;';
+   html += 'display: inline;';
+   html += 'color: white;';
+   html += 'background-color: red;';
+   html += '}';
+   html += '</style>';
+   html += '</head>';
 	
-   teamRoster += '<body>';
-   teamRoster += '<div class="container-fluid">';
-   teamRoster += '<div class="row">';
+   html += '<body>';
+   html += '<div class="container-fluid">';
+   html += '<div class="row">';
     
-   teamRoster += '<div class="container p-3 my-3 border">';
-   teamRoster += '<h1>Software Engineering Team</h1>';
-   teamRoster += '</div>';
+   html += '<div class="container p-3 my-3 border">';
+   html += '<h1>Software Engineering Team</h1>';
+   html += '</div>';
 
-   teamRoster += '<div>';
-   teamRoster += '<div class="card">';
-   teamRoster += '<h5 class="card-header">Team Roster:</h5>';
-   teamRoster += '<div class="card-body">';
-   teamRoster += '<div class="card-deck">';
+   html += '<div>';
+   html += '<div class="card">';
+   html += '<h5 class="card-header">Team Roster:</h5>';
+   html += '<div class="card-body">';
+   html += '<div class="card-deck">';
 
    for (i = 0; i < teamArray.length; i++)
    {
-      teamRoster += '<div class="card bg-primary">';
-      teamRoster += '<div class="card-body text-left" style="color:white;">';
-      teamRoster += '<h5 class="card-text">';
-      teamRoster += teamArray[i][0];
-      teamRoster += '</h5>';
-      teamRoster += '<p class="card-text">Name: ' + teamArray[i][1] + '</p>';
-      teamRoster += '<p class="card-text">ID: ' + teamArray[i][2] + '</p>';
-      teamRoster += '<p class="card-text">email: ' + teamArray[i][3] + '</p>';
-      teamRoster += '<p class="card-text">';
-      teamRoster += teamArray[i][4];
-      teamRoster += '" "';
-      teamRoster += teamArray[i][5];
-      teamRoster += '</p>';
-      teamRoster += '</div>';
-      teamRoster += '</div>';
+      html += '<div class="card bg-primary">';
+      html += '<div class="card-body text-left" style="color:white;">';
+      html += '<h5 class="card-text">';
+      html += teamArray[i][0];
+      html += '</h5>';
+      html += '<p class="card-text">Name: ' + teamArray[i][1] + '</p>';
+      html += '<p class="card-text">ID: ' + teamArray[i][2] + '</p>';
+      html += '<p class="card-text">email: ' + teamArray[i][3] + '</p>';
+      html += '<p class="card-text">';
+      html += teamArray[i][4];
+      html += '" "';
+      html += teamArray[i][5];
+      html += '</p>';
+      html += '</div>';
+      html += '</div>';
    }
 
-   teamRoster += '</div>';
-   teamRoster += '</div>';
-   teamRoster += '</div>';
+   html += '</div>';
+   html += '</div>';
+   html += '</div>';
 
-   teamRoster += '</div>';
-   teamRoster += '</div>';
-   teamRoster += '</div>';
-   teamRoster += '</body>';
-   teamRoster += '<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>';
-   teamRoster += '<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>';
-   teamRoster += '<script src="script.js"></script>';
-   teamRoster += '</html>';
+   html += '</div>';
+   html += '</div>';
+   html += '</div>';
+   html += '</body>';
+   html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>';
+   html += '<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>';
+   html += '<script src="script.js"></script>';
+   html += '</html>';
 
    console.log(teamRoster);
 	

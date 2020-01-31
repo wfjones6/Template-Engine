@@ -274,9 +274,9 @@ async function generateRoster() {
    teamRoster += '</html>';
 
    console.log(teamRoster);
-   //output a file named team.html in the output folder
 	
-   return writeFileAsync("index.html", html);
+   //output a file named team.html in the output folder
+   return writeFileAsync("output/team.html", html);
 }
 
 // Begin the process

@@ -122,6 +122,7 @@ async function getOther(empRole) {
 
      case 'Generate':
        generateRoster();
+       process.exit();
        break;
 
      default:
@@ -274,8 +275,8 @@ async function generateRoster() {
 
    console.log(teamRoster);
    //output a file named team.html in the output folder
-
-   process.exit();
+	
+   return writeFileAsync("index.html", html);
 }
 
 // Begin the process

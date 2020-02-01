@@ -19,23 +19,21 @@ var teamArray = [];
 async function promptUser(mRole) {
   teamMbr.role = mRole;
 
-  getOther(mRole)
+  getEmpName(mRole)
   .then(function(answers) {
-    mOtherDesc = answers.other;
+    teamMbr.name = answers.name;
 
-    getEmpName(mRole)
-    .then(function(answers) {
-      teamMbr.name = answers.name;
-
-        getEmpId(mRole)
-        .then(function(answers) {
-          teamMbr.id = answers.id;
+      getEmpId(mRole)
+      .then(function(answers) {
+        teamMbr.id = answers.id;
   
-            getEmpEmail(mRole)
-            .then(function(answers) {
-              teamMbr.email = answers.email;
+          getEmpEmail(mRole)
+          .then(function(answers) {
+            teamMbr.email = answers.email;
 
-              console.log("Emp: " + teamMbr.name + ", " + teamMbr.id + ", " + teamMbr.email + ", " + teamMbr.role + ", " + mOtherDesc);
+            getOther(mRole)
+            .then(function(answers) {
+              mOtherDesc = answers.other;
 
               empArray = [teamMbr.role,
                           teamMbr.name,
@@ -47,11 +45,12 @@ async function promptUser(mRole) {
               teamArray.push(empArray);
 
               selectAction();
-          });
-       });
-    });
- });   
-}
+         
+            }); 
+         });
+      });
+    });   
+ }
 
 async function selectAction() {
   inquirer
@@ -91,7 +90,7 @@ async function selectAction() {
           break;
 
         case 'generate_roster':
-          promptUser('Generate');
+          generateRoster();
           break;
 
         case 'exit':
@@ -120,17 +119,12 @@ async function getOther(empRole) {
        mMsg = "school name: ";
        break;
 
-     case 'Generate':
-       generateRoster();
-       process.exit();
-       break;
-
      default:
        process.exit();
        break;
-  }
+   }
 
-  return inquirer.prompt([
+   return inquirer.prompt([
     {
         type: "input",
         name: "other",
@@ -201,7 +195,7 @@ async function getEmpEmail(empRole){
 
 async function generateRoster() {
    // generateHTML
-   const html = '';
+   var html = '';
 
    html += '<!DOCTYPE html>';
    html += '<html lang="en">';
@@ -214,7 +208,7 @@ async function generateRoster() {
    html += 'integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>';
    html += '<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>';
    html += '<link rel="stylesheet" href="styles.css">';
-   html += '<title>Weather Dashboard</title>';
+   html += '<title>Team Roster</title>';
 
    html += '<style>';
    html += 'span {';
@@ -228,7 +222,7 @@ async function generateRoster() {
    html += '</head>';
 	
    html += '<body>';
-   html += '<div class="container-fluid">';
+   html += '<div class="container">';
    html += '<div class="row">';
     
    html += '<div class="container p-3 my-3 border">';
@@ -273,10 +267,13 @@ async function generateRoster() {
    html += '<script src="script.js"></script>';
    html += '</html>';
 
-   console.log(teamRoster);
-	
+   //console.log(html);
+
    //output a file named team.html in the output folder
-   return writeFileAsync("output/team.html", html);
+   writeFileAsync("team.html", html);
+
+   console.log("Team Roster Generated");
+   process.exit();
 }
 
 // Begin the process
